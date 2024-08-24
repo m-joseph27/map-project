@@ -401,8 +401,8 @@ onMounted(() => {
   map.value = new maplibregl.Map({
     container: mapContainer.value,
     style: `https://api.maptiler.com/maps/streets-v2/style.json?key=${apiKey}`,
-    center: [107.3948, -6.4428],
-    zoom: 4
+    center: [107.6200136, -6.9189569],
+    zoom: 10
   })
 
   map.value.on('load', () => {
@@ -415,10 +415,6 @@ onMounted(() => {
       renderLayer(CustomMarkerLayer, { map: map.value, data: geojsonData })
       renderLayer(DefaultMarkerLayer, { map: map.value, data: geojsonData })
       renderLayer(VectorTilesLayer, { map: map.value })
-
-      // Check if layers are properly added
-      console.log('Polygon fill layer:', map.value.getLayer('polygon-fill-layer'));
-      console.log('Polygon line layer:', map.value.getLayer('polygon-line-layer'));
     }
   })
 })
